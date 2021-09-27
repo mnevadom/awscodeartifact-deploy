@@ -4,11 +4,15 @@ inputs:
   mvndir: 
     description: "mvn dir"
     required: true
+  awsowner: 
+    description: "awsowner"
+    required: true
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
     - ${{ inputs.mvndir }}
+    - ${{ inputs.awsowner }}
 branding:
   color: 'green'
   icon: 'at-sign'

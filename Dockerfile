@@ -1,19 +1,14 @@
-FROM amazon/aws-cli as awstoken
+FROM ubuntu:18.04
 
-WORKDIR /resultfile
 
-RUN aws codeartifact get-authorization-token --domain dgp-mvn-artifacts-domain --domain-owner 500664183679 --query authorizationToken --output text > tmptoken
+RUN apt-get update && apt-get install -y curl && apt-get install unzip 
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip
+RUN ./aws/install
 
-#COPY entrypoint.sh /entrypoint.sh
-
-#COPY mvn /mvn
-
-#ENTRYPOINT ["/entrypoint.sh"]
-
-FROM maven:latest
+RUN apt update
+RUN apt install -y maven
 
 COPY entrypoint.sh /entrypoint.sh
-
-COPY --from=awstoken /resultfile/tmptoken .
 
 ENTRYPOINT ["/entrypoint.sh"]
