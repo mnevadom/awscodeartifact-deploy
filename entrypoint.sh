@@ -4,6 +4,7 @@ set -e
 mvndir=$1
 awsowner=$2
 
+echo "codeartifact get-authorization-token --domain dgp-mvn-artifacts-domain --domain-owner $awsowner --query authorizationToken --output text > /tmptoken"
 
 aws codeartifact get-authorization-token --domain dgp-mvn-artifacts-domain --domain-owner $awsowner --query authorizationToken --output text > /tmptoken
 
