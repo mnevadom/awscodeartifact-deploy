@@ -1,0 +1,22 @@
+name: "AWS Login"
+description: "login into AWS Cloud"
+inputs:
+  region: 
+    description: "Region name, for example 'eu-west-3'"
+    required: true
+  aws_access_key_id: 
+    description: "aws_access_key_id to login"
+    required: true
+  aws_secret_access_key: 
+    description: "The aws_secret_access_key to connect into AWS Cloud"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.region }}
+    - ${{ inputs.aws_access_key_id }}
+    - ${{ inputs.aws_secret_access_key }}
+branding:
+  color: 'green'
+  icon: 'at-sign'

@@ -1,0 +1,29 @@
+<settings>
+	<servers>
+	  <server>
+	    <id>codeartifact</id>
+	    <username>codeartifact-user</username>
+	    <password>mytoken</password>
+	  </server>
+	</servers>
+	
+	<profiles>
+        <profile>
+            <id>default</id>
+            <repositories>
+                <repository>
+                    <id>codeartifact</id>
+                    <url>https://dgp-mvn-artifacts-domain-500664183679.d.codeartifact.eu-west-3.amazonaws.com/maven/dgp-mvn-artifacts-repo/</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>default</activeProfile>
+    </activeProfiles>
+	
+</settings>
+	
+	
+	
+	
